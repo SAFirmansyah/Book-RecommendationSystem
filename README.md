@@ -27,14 +27,15 @@ Terdapat **11123** baris data, dengan 11 kolom. Menurut informasi dari sumber da
 1. `bookID`: Identifikasi unik tiap buku
 2. `title`: Judul dari tiap buku
 3. `authors`: Penulis dari tiap buku. Pada beberapa baris data, terdapat lebih dari dua penulis buku.
-4. `isbn`: Nomor ISBN tiap buku, mirip seperti bookID, namun lebih seperti nomor serial.
-5. `isbn13`: Nomor ISBN, namun dalam 13 digit
-6. `language_code`: Bahasa dari karya buku yang dituliskan.
-7. `num_pages`: Jumlah halaman dari tiap buku
-8. `ratings_count`: Jumlah rating yang diterima tiap buku
-9. `text_reviews_count`: Jumlah review dalam bentuk teks yang diterima tiap buku
-10. `publication_date`: Tanggal terbitnya tiap buku
-11. `publisher`: Penerbit buku
+4. `average_rating`: skor rating rerata dari tiap buku
+5. `isbn`: Nomor ISBN tiap buku, mirip seperti bookID, namun lebih seperti nomor serial.
+6. `isbn13`: Nomor ISBN, namun dalam 13 digit
+7. `language_code`: Bahasa dari karya buku yang dituliskan.
+8. `num_pages`: Jumlah halaman dari tiap buku
+9. `ratings_count`: Jumlah rating yang diterima tiap buku
+10. `text_reviews_count`: Jumlah review dalam bentuk teks yang diterima tiap buku
+11. `publication_date`: Tanggal terbitnya tiap buku
+12. `publisher`: Penerbit buku
 
 ## Data Preparation
 1. Mengubah tipe data dari fitur `publication_date` menjadi `datetime`
@@ -80,10 +81,9 @@ Terlihat sistem rekomendasi berhasil memberikan 10 rekomendasi buku yang sesuai 
 
 Precision = Jumlah Rekomendasi Relevan/Jumlah Total Rekomendasi
 
-Sistem menghasilkan **Precision = 1.00** untuk berdasarkan bahasa karya, dan **Precision = 0.90**, untuk berdasarkan penulis. Berarti semua rekomendasi sesuai dengan preferensi pengguna. Contoh, untuk anime *The Road to Dune*:
-- 10/10 rekomendasi memiliki bahasa serupaa.
-- 9/10 rekomendasi datang dari penulis serupa.
-- Rekomendasi yang disajikan memiliki skor rating yang tidak terpaut jauh dari **The Road to Dune**
+Sistem berhasil menghasilkan nilai **Precision = 1.00**. Berarti semua rekomendasi sesuai dengan preferensi pengguna. Contoh, untuk anime *The Road to Dune*:
+- 10/10 rekomendasi memiliki skor rating yang tidak terpaut jauh, dan judul yang serupa. 
+- Rekomendasi yang disajikan memiliki judul yang serupa dengan **The Road to Dune**
 
 #### Kaitan dengan Problem Statements:
 1. **Membantu komunitas menemukan buku yang sesuai dengan preferensi mereka:**  
@@ -112,11 +112,13 @@ Pendekatan ini mudah diimplementasikan karena hanya memerlukan perhitungan *Cosi
 3. **Potensi Peningkatan Popularitas**
     Dengan adanya sistem ini, buku yang sebelumnya tidak terlalu populer namun sebenearnya berkualitas baik, mampu terdongkrak popularitasnya dan penjualannya.
 
+---
+
 ## Kesimpulan
 
 Sistem rekomendasi berbasis *Content-Based Filtering* ini:
 1. Membantu komunitas menemukan buku yang sesuai dengan preferensi mereka.
 2. Mudah diimplementasikan dan relevan dengan tujuan bisnis.
-3. Memberikan hasil evaluasi yang sangat baik (**Precision = 0.90 - 1.00**), menunjukkan sistem efektif dan efisien.
+3. Memberikan hasil evaluasi yang sangat baik (**Precision = 1.00**), menunjukkan sistem efektif dan efisien.
 
 Sistem ini dapat diandalkan dan berpotensi dikembangkan lebih lanjut dengan fitur tambahan seperti *community feedback* atau integrasi hybrid filtering.
